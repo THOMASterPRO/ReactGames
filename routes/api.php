@@ -21,10 +21,5 @@ Route::resource('/games', 'App\Http\Controllers\GamesController');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//
-//Route::get('/games', 'GamesController@index');
-//Route::post('/games', 'GamesController@store');
-//Route::put('/games', 'GamesController@update');
-//Route::delete('/games', 'GamesController@destroy');
 
 
