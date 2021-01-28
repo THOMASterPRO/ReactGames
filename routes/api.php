@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/games', 'App\Http\Controllers\GamesController');
+Route::resource('/games', 'App\Http\Controllers\GamesController')->withoutMiddleware(['csrf']);
 
 
 

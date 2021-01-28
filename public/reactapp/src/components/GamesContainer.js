@@ -2,6 +2,8 @@ import React from "react";
 import GamesList from "./GamesList";
 import GamesEditor from "./GamesEditor"
 import GamesCreate from "./GamesCreate"
+import GamesDelete from "./GamesDelete"
+
 
 class GamesContainer extends React.Component {
 
@@ -25,8 +27,12 @@ class GamesContainer extends React.Component {
                 <div>
                     {/*
                     <GamesList games={this.state.games} />
-                    */}
                     <GamesEditor gameId="5" />
+                    <GamesCreate/>
+                    <GamesDelete gameId="16" />
+
+                    */}
+                    <GamesDelete gameId="16" />
                 </div>
             </>
         )
