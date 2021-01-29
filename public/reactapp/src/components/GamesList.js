@@ -31,6 +31,10 @@ class GamesList extends React.Component {
                                             <strong>Favorite</strong>: {game.favorite}
                                         </li>
                                     </ul>
+                                    <div>
+                                    <a href="#" className="btn btn-primary btn-lg " role="button" aria-pressed="true">Edit Game</a>
+                                    <a href="#" className="btn btn-danger btn-lg " role="button" aria-pressed="true">Delete Game</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
