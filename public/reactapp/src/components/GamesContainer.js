@@ -8,7 +8,42 @@ import GamesDelete from "./GamesDelete"
 class GamesContainer extends React.Component {
 
     state = {
-        games: []
+        editGameId: '',
+        games: [
+            {
+                "id": 1,
+                "name": "Super  odyssey koen",
+                "year": "2017",
+                "quantity": "1",
+                "favorite": "1",
+                "platform": "Nintendo Switch",
+                "description": "A very fun mario game",
+                "created_at": "2021-01-26T14:35:28.000000Z",
+                "updated_at": "2021-01-28T18:10:10.000000Z"
+            },
+            {
+                "id": 2,
+                "name": "Super mario odyssey",
+                "year": "2017",
+                "quantity": "1",
+                "favorite": "true",
+                "platform": "Nintendo Switch",
+                "description": "A very fun mario game",
+                "created_at": "2021-01-26T14:35:28.000000Z",
+                "updated_at": "2021-01-28T18:10:10.000000Z",
+            },
+            {
+                "id": 3,
+                "name": "Super mario odyssey",
+                "year": "2017",
+                "quantity": "1",
+                "favorite": "true",
+                "platform": "Nintendo Switch",
+                "description": "A very fun mario game",
+                "created_at": "2021-01-26T15:36:10.000000Z",
+                "updated_at": "2021-01-26T15:36:10.000000Z"
+            },
+        ]
     }
 
 
@@ -16,13 +51,22 @@ class GamesContainer extends React.Component {
         fetch('http://127.0.0.1:8000/api/games')
             .then(res => res.json())
             .then((data) => {
-                this.setState({ games: data  })
+                // this.setState({ games: data  })
             })
             .catch(console.log)
     }
 
     SwitchRender() {
         alert('hello');
+    }
+
+    editGame = (gameId) => {
+        console.log('edit gAme!', gameId)
+        this.setState({ editGameId: gameId })
+    }
+
+    closeEdit = () => {
+        this.setState({ editGameId: '' })
     }
 
     render() {
@@ -57,6 +101,9 @@ class GamesContainer extends React.Component {
                     </div>
                 </nav>
                 <div>
+                    this.state.editGameId: {this.state.editGameId}<br></br>
+
+                    
                     {/*
                     <GamesList games={this.state.games} />
                     <GamesEditor gameId="5" />
@@ -64,7 +111,16 @@ class GamesContainer extends React.Component {
                     <GamesDelete gameId="5" />
 
                     */}
-                    <GamesList games={this.state.games} />                
+                    
+                    {/* <GamesEditor gameId={this.state.editGameId} /> */}
+
+                    {this.state.editGameId &&
+                        <GamesEditor gameId={this.state.editGameId} close={this.closeEdit} />
+                    }
+
+                    {!this.state.editGameId && 
+                        <GamesList games={this.state.games} editGame={this.editGame} />
+                    }
                 </div>
             </>
         )

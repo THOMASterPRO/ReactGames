@@ -53,13 +53,15 @@ class GamesEditor extends React.Component {
         event.preventDefault();
       }
 
-
-
+    close = () => {
+        this.props.close();
+    }
 
     render() {
         return (
             <>
                 <div>
+                    <button class="btn" onClick={this.close}>Close</button>
                     <form onSubmit={this.handleSubmit} >
                         <div className="form-group">
                             <label htmlFor="name">Name:</label>

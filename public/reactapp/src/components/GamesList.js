@@ -1,6 +1,9 @@
 import React from "react"
 
 class GamesList extends React.Component {
+    editGame = (gameId) => {
+        this.props.editGame(gameId);
+    }
     render() {
         return (
             <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -32,7 +35,7 @@ class GamesList extends React.Component {
                                         </li>
                                     </ul>
                                     <div>
-                                    <a href="#" className="btn btn-primary btn-lg " role="button" aria-pressed="true">Edit Game</a>
+                                    <button href="#" className="btn btn-primary btn-lg " role="button" aria-pressed="true" onClick={() => this.editGame(game.id)}>Edit Game</button>
                                     <a href="#" className="btn btn-danger btn-lg " role="button" aria-pressed="true">Delete Game</a>
                                     </div>
                                 </div>
