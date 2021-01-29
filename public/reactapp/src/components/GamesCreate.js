@@ -15,7 +15,8 @@ class GamesEditor extends React.Component {
         },
         favoriteChecked: true,
         value: "",
-        putResponse: {}
+        putResponse: {},
+        temp : 2
       }
       this.handleSubmit = this.handleSubmit.bind(this); 
     }  
@@ -42,8 +43,9 @@ class GamesEditor extends React.Component {
 
             console.log(JSON.stringify( this.state.game));
         });
-        
         event.preventDefault();
+
+
       }
 
 
@@ -80,6 +82,8 @@ class GamesEditor extends React.Component {
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
+
+                        <a onClick={() => this.props.setStateAndUpdate({selectedview : 1})} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
                     </form>
                 </div>
             </>

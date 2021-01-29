@@ -1,9 +1,20 @@
 import React from "react"
 
 class GamesList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            temp : 2
+          }
+    }
+
     render() {
         return (
             <div className="accordion accordion-flush" id="accordionFlushExample">
+                <div>
+                <a onClick={() => this.props.setState({selectedview : 3})} href="#" className="btn btn-outline-primary btn-lg " role="button" aria-pressed="true">Add a game</a>
+                </div>
                 {this.props.games.map(game => (
                     <div className="accordion-item" key={game.id}>
                         <h2 className="accordion-header" id={"flush-heading" + game.id}>
@@ -32,8 +43,8 @@ class GamesList extends React.Component {
                                         </li>
                                     </ul>
                                     <div>
-                                    <a href="#" className="btn btn-primary btn-lg " role="button" aria-pressed="true">Edit Game</a>
-                                    <a href="#" className="btn btn-danger btn-lg " role="button" aria-pressed="true">Delete Game</a>
+                                    <a onClick={() => this.props.setState({selectedview : 2, selectedGame: game.id})} href="#" className="btn btn-primary btn-lg " role="button" aria-pressed="true">Edit Game</a>
+                                    <a onClick={() => this.props.setState({selectedview : 4, selectedGame: game.id})} href="#" className="btn btn-danger btn-lg " role="button" aria-pressed="true">Delete Game</a>
                                     </div>
                                 </div>
                             </div>

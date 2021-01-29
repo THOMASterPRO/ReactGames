@@ -6,10 +6,14 @@ import GamesDelete from "./GamesDelete"
 
 
 class GamesContainer extends React.Component {
-
-    state = {
-        games: []
+constructor(props) {
+    super(props)
+    this.state = {
+        games: [],
+        selectedview: 1,
+        selectedGame: 0
     }
+}
 
 
     componentDidMount() {
@@ -21,41 +25,55 @@ class GamesContainer extends React.Component {
             .catch(console.log)
     }
 
-    SwitchRender() {
-        alert('hello');
+    
+    setStateAndUpdate(state) {
+        
+        this.setState(state, function () {
+            alert ('erin')
+            this.child.setState({temp : new Date});
+        });
     }
 
     render() {
+        if(this.state.selectedview == 1)
+        {
+            return (
+                <>
+                    <div>
+                        <GamesList games={this.state.games} setState={state => this.setState(state)} setStateAndUpdate={state => this.setStateAndUpdate(state)} ref={ref => (this.child = ref)}/>                
+                    </div>
+                </>
+            )  
+        } else if (this.state.selectedview == 2) {
+            return (
+                <>
+                    <div>
+                        <GamesEditor gameId={this.state.selectedGame} setState={state => this.setState(state)} setStateAndUpdate={state => this.setStateAndUpdate(state)} ref={ref => (this.child = ref)}/>
+                    </div>
+                </>
+            )
+        } else if (this.state.selectedview == 3) {
+            return (
+                <>
+                    <div>
+                        <GamesCreate setState={state => this.setState(state)} setStateAndUpdate={state => this.setStateAndUpdate(state)} ref={ref => (this.child = ref)}/>
+                    </div>
+                </>
+            )
+        } else if (this.state.selectedview == 4) {
+            return (
+                <>
+                    <div>
+                        <GamesDelete gameId={this.state.selectedGame} setState={state => this.setState(state)} setStateAndUpdate={state => this.setStateAndUpdate(state)} ref={ref => (this.child = ref)}/>
+                    </div>
+                </>
+            )    
+        }
+        
+        
         return (
             <>
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-                    <div className="container">
-                        <a className="navbar-brand" href="">
-                            Game Database
-                        </a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
 
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            {/* <!-- Left Side Of Navbar --> */}
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/games">Gameslist</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/games/create">Add game</a>
-                                </li>
-                            </ul>
-
-                            {/* <!-- Right Side Of Navbar --> */}
-                            <ul className="navbar-nav ml-auto">
-                                {/* <!-- Authentication Links --> */}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
                 <div>
                     {/*
                     <GamesList games={this.state.games} />

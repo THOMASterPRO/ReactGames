@@ -7,6 +7,7 @@ class GamesEditor extends React.Component {
     this.state = {
         game : {}
       }
+
     }
 
     componentDidMount() {
@@ -27,10 +28,13 @@ class GamesEditor extends React.Component {
         return (
             <>
                Record deleted
+                <br/>
+               <a onClick={() => this.props.setState({selectedview : 1})} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
             </>
         )
     }
 
+    
 
 
 }

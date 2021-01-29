@@ -28,7 +28,6 @@ class GamesEditor extends React.Component {
 
 
       handleSubmit(event) {
-          alert(event.target.favorite.checked);
         let gameHelper = { ...this.state.game };
         gameHelper["name"] =  event.target.name.value
         gameHelper["year"] =  event.target.year.value
@@ -87,6 +86,7 @@ class GamesEditor extends React.Component {
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
+                        <a onClick={() => this.props.setState({selectedview : 1})} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
                     </form>
                 </div>
             </>
