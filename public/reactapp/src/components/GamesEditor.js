@@ -4,15 +4,16 @@ import React from "react";
 class GamesEditor extends React.Component {
     constructor(props) {
         super(props);
-    this.state = {
-        game : {},
-        favoriteChecked: true,
-        value: "",
-        putResponse: {}
-      }
+        this.state = {
+            game: {},
+            favoriteChecked: true,
+            value: "",
+            putResponse: {}
+        }
 
-      this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     componentDidMount() {
         fetch('http://127.0.0.1:8000/api/games/' + this.props.gameId)
             .then(res => res.json())
@@ -22,35 +23,32 @@ class GamesEditor extends React.Component {
             .catch(console.log);
     }
 
-
-
-
-
-
-      handleSubmit(event) {
+    handleSubmit(event) {
         let gameHelper = { ...this.state.game };
-        gameHelper["name"] =  event.target.name.value
-        gameHelper["year"] =  event.target.year.value
+        gameHelper["name"] = event.target.name.value
+        gameHelper["year"] = event.target.year.value
         gameHelper["favorite"] = event.target.favorite.checked ? "1" : "0";
-        gameHelper["quantity"] =  event.target.quantity.value
-        gameHelper["platform"] =  event.target.platform.value
-        gameHelper["description"] =  event.target.description.value
-        this.setState({game: gameHelper}, function () {
+        gameHelper["quantity"] = event.target.quantity.value
+        gameHelper["platform"] = event.target.platform.value
+        gameHelper["description"] = event.target.description.value
+        this.setState({ game: gameHelper }, function () {
             const requestOptions = {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json',
-                            'Accept': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
                 body: JSON.stringify(this.state.game)
             };
 
             fetch('http://127.0.0.1:8000/api/games/' + this.props.gameId, requestOptions)
                 .then(response => response.json());
 
-            console.log(JSON.stringify( this.state.game));
+            console.log(JSON.stringify(this.state.game));
         });
 
         event.preventDefault();
-      }
+    }
 
 
 
@@ -74,7 +72,7 @@ class GamesEditor extends React.Component {
                         </div>
                         <div className="form-group">
                             <label htmlFor="favorite">Favorite:</label>
-                            <input type="checkbox" className="form-control" id="favorite" name="favorite" checked={this.state.favoriteChecked} onChange={()=>{this.setState({favoriteChecked: !this.state.favoriteChecked})}} />
+                            <input type="checkbox" className="form-control" id="favorite" name="favorite" checked={this.state.favoriteChecked} onChange={() => { this.setState({ favoriteChecked: !this.state.favoriteChecked }) }} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="platform">Platform:</label>
@@ -86,7 +84,7 @@ class GamesEditor extends React.Component {
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        <a onClick={() => this.props.setState({selectedview : 1})} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
+                        <a onClick={() => this.props.setStateAndUpdate({ selectedview: 1 })} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
                     </form>
                 </div>
             </>

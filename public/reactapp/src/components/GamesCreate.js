@@ -15,8 +15,7 @@ class GamesEditor extends React.Component {
         },
         favoriteChecked: true,
         value: "",
-        putResponse: {},
-        temp : 2
+        putResponse: {}
       }
       this.handleSubmit = this.handleSubmit.bind(this); 
     }  

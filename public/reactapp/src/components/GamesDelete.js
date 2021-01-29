@@ -4,17 +4,19 @@ import React from "react";
 class GamesEditor extends React.Component {
     constructor(props) {
         super(props);
-    this.state = {
-        game : {}
-      }
+        this.state = {
+            game: {}
+        }
 
     }
 
     componentDidMount() {
         const requestOptions = {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json',
-                        'Accept': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
             body: ""
         };
 
@@ -27,14 +29,16 @@ class GamesEditor extends React.Component {
     render() {
         return (
             <>
-               Record deleted
-                <br/>
-               <a onClick={() => this.props.setState({selectedview : 1})} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
+                <div className="alert alert-success" role="alert">
+                    Record deleted
+                </div>
+                <br />
+                <a onClick={() => this.props.setStateAndUpdate({ selectedview: 1 })} href="#" className="btn btn-secondary" role="button" aria-pressed="true">Back to overview</a>
             </>
         )
     }
 
-    
+
 
 
 }
