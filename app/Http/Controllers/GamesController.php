@@ -28,8 +28,8 @@ class GamesController extends Controller
         $this->validate($request,
             [
                 'name' => 'required',
-                'year' => 'required|numeric',
-                'quantity' => 'required|numeric',
+                'year' => 'required',
+                'quantity' => 'required',
                 'platform' => 'required',
                 'description' => 'required'
             ]);

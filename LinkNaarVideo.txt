@@ -1,0 +1,7 @@
+Dit is de link naar de video waar ik mijn product laat zien
+
+https://youtu.be/9kFGY7CHvf8
+(er zit geen geluid bij)
+
+De react code staat in het project in de map "public/reactapp"
+

@@ -35,7 +35,7 @@ class GamesContainer extends React.Component {
     }
 
     render() {
-        if (this.state.selectedview == 1) {
+        if (this.state.selectedview === 1) {
             return (
                 <>
                     <div> 
@@ -43,7 +43,7 @@ class GamesContainer extends React.Component {
                     </div>
                 </>
             )
-        } else if (this.state.selectedview == 2) {
+        } else if (this.state.selectedview === 2) {
             return (
                 <>
                     <div>
@@ -51,7 +51,7 @@ class GamesContainer extends React.Component {
                     </div>
                 </>
             )
-        } else if (this.state.selectedview == 3) {
+        } else if (this.state.selectedview === 3) {
             return (
                 <>
                     <div>
@@ -59,7 +59,7 @@ class GamesContainer extends React.Component {
                     </div>
                 </>
             )
-        } else if (this.state.selectedview == 4) {
+        } else if (this.state.selectedview === 4) {
             return (
                 <>
                     <div>
