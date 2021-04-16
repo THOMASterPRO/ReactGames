@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "bba75c92-a7ef-46ba-b411-854234f38840",
+		"name": "Full-stack development programmeren 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webapi.url}}/api/games",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a game",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "super jario",
+							"type": "text"
+						},
+						{
+							"key": "year",
+							"value": "2021",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "favorite",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "platform",
+							"value": "nintendo switch",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "lfun game",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webapi.url}}/api/games",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a game Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"kirby Mario odyssey\",\r\n    \"year\" : \"2017\",\r\n    \"quantity\" : 1,\r\n    \"favorite\" :false,\r\n    \"platform\" : \"Nintendo Switch\",\r\n    \"description\":\"A very fun mario game\"\r\n}"
+				},
+				"url": {
+					"raw": "{{webapi.url}}/api/games",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show a single game",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{webapi.url}}/api/games/7?id=42",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games",
+						"7"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "42"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a game",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":42,\"name\":\"Super  odyssey koen\",\"year\":\"2017\",\"quantity\":\"1\",\"favorite\":\"1\",\"platform\":\"Nintendo Switch\",\"description\":\"A very fun mario game\",\"created_at\":\"2021-01-27T15:06:17.000000Z\",\"updated_at\":\"2021-01-27T15:06:17.000000Z\"}"
+				},
+				"url": {
+					"raw": "{{webapi.url}}/api/games/42",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games",
+						"42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a game",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{webapi.url}}/api/games/4",
+					"host": [
+						"{{webapi.url}}"
+					],
+					"path": [
+						"api",
+						"games",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

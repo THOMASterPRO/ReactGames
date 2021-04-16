@@ -1,0 +1,13 @@
+Ik heb geprobeerd om de api op een azure server te zetten en te laten runnen. Maar om een of andere reden krijg ik via de server telkens een 404 error. Als ik via localhost probeer om met bijvoorbeeld postman een request te doen gaat
+dit wel goed en werkt het wel, maar via de server dus niet en krijg ik telkens een error 404.
+
+In dit gehele zip bestand heb ik ook nog een json bestand met mijn postman settings toegevoegd om via localhost de api te kunnen testen.
+U zal dus zelf nog een database moeten aanmaken en verbinden met laravel om te kunnen testen.
+
+Hier volgen nog de link naar:
+
+de server waar de api op staat:
+https://webapifullstack.azurewebsites.net/  (api/games)
+
+mijn github repository om de code makkelijk te kunnen downloaden:
+https://github.com/THOMASterPRO/ReactGames
